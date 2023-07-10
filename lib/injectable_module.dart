@@ -14,8 +14,7 @@ Future<void> init() async {
   sl.registerFactory(() => UserDataBloc(sl()));
   sl.registerLazySingleton(() => http.Client());
 
-  sl.registerLazySingleton<RemoteUserServices>(
-      () => RemoteUser(sl<http.Client>()));
+  sl.registerLazySingleton<RemoteUserServices>(() => RemoteUser(sl()));
   sl.registerLazySingleton<UserRepository>(() => sl());
   sl.registerLazySingleton<UserServices>(() => UserRepository(sl()));
 }
